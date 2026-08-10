@@ -2,21 +2,21 @@ name: Daily A-Share Fund Flow Report
 
 on:
   schedule:
-    # 北京时间 14:30 → UTC 6:30（周一到周五）
+    # 北京时间 14:30 → UTC 6:30 (周一至周五)
     - cron: '30 6 * * 1-5'
-  workflow_dispatch:   # 允许手动触发测试
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4   # 升级到 v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5   # 升级到 v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
